@@ -18,7 +18,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2025-09-25T23:25:51.204349-03:00"
+						"dateAndTimeString" : "2025-10-03T10:08:07.229208-03:00"
 					}
 				},
 				"editEmail" : {
@@ -29,17 +29,17 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2025-09-25T23:28:55.996831-03:00"
+						"dateAndTimeString" : "2025-10-06T15:59:57.221447-03:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
-					"uidString" : "LGjKvQz8DQCo+8Q7CCu5WA=="
+					"uidString" : "FxSbh6L8DQCnzhBvB6pqhg=="
 				},
-				"code" : "('HeySmalltalker') == 'HeySmalltalker'.\n('HeySmalltalker') asSymbol == #HeySmalltalker.\n('Hey','Smalltalker') == 'HeySmalltalker'.\n('Hey','Smalltalker') asSymbol == #HeySmalltalker.\n"
+				"code" : "json:= '20231012_230826_commit_sharings.json' asFileReference"
 			},
 			{
-				"__type" : "textSnippet",
+				"__type" : "pharoSnippet",
 				"children" : {
 					"__type" : "snippets",
 					"items" : [ ]
@@ -52,7 +52,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2025-09-25T23:25:47.844329-03:00"
+						"dateAndTimeString" : "2025-10-03T10:07:20.416993-03:00"
 					}
 				},
 				"editEmail" : {
@@ -63,17 +63,82 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2025-09-25T23:25:47.844329-03:00"
+						"dateAndTimeString" : "2025-10-03T10:14:16.107947-03:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
-					"uidString" : "GSOXvQz8DQCo+uU7CCu5WA=="
+					"uidString" : "qMjQhKL8DQCndXbhB6pqhg=="
 				},
-				"paragraphStyle" : {
-					"__type" : "textStyle"
+				"code" : "diccionary:=STONJSON fromString:  json."
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
 				},
-				"string" : ""
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2025-10-23T20:43:53.07193-03:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2025-10-23T23:39:31.027066-03:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "/ukZvj3+DQCTje70CmTbhw=="
+				},
+				"code" : "view:= CommitAnalysis fromDictionary: diccionary."
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2025-11-23T11:16:08.002217-03:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2025-11-23T11:16:08.002217-03:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "wte+bKUADgCS4wOGC+dmQw=="
+				},
+				"code" : ""
 			}
 		]
 	},
@@ -96,12 +161,12 @@
 		"__type" : "time",
 		"time" : {
 			"__type" : "dateAndTime",
-			"dateAndTimeString" : "2025-09-25T23:25:11.316663-03:00"
+			"dateAndTimeString" : "2025-10-03T09:42:02.341067-03:00"
 		}
 	},
 	"pageType" : {
 		"__type" : "namedPage",
-		"title" : "Ejercicios_2"
+		"title" : "read_file"
 	},
 	"uid" : {
 		"__type" : "uuid",

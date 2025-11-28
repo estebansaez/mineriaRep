@@ -1,0 +1,209 @@
+{
+	"__schema" : "4.1",
+	"__type" : "page",
+	"children" : {
+		"__type" : "snippets",
+		"items" : [
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2025-11-24T15:58:34.159776-03:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2025-11-27T00:38:48.673519-03:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "3BqofL0ADgC9qTyGD/6M2g=="
+				},
+				"code" : "baseDirectory := FileLocator home /'Escritorio'/ 'consolidated_data'."
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2025-11-27T01:25:01.132806-03:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2025-11-27T01:25:10.022827-03:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "xuQeou0ADgCoVfUpDheIGA=="
+				},
+				"code" : "jsonFiles := baseDirectory allChildrenMatching: '*.json'."
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2025-11-27T01:25:07.465333-03:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2025-11-27T01:25:08.348933-03:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "moR/ou0ADgCoYzBCDheIGA=="
+				},
+				"code" : "jsonDicts := jsonFiles collect: [ :f | STONJSON fromString: f ]."
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2025-11-27T12:35:49.21568-03:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2025-11-27T12:35:50.181651-03:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "VuEXAfcADgCjpN+cApRKLA=="
+				},
+				"code" : "\"--- BEGIN: Self-contained fix & loader ---\"\n\n\"1) Ensure classes exist (create if missing)\"\n(Smalltalk at: #VulnerabilityVersion ifAbsent: [\n    Object subclass: #VulnerabilityVersion\n        instanceVariableNames: 'timestamp vulnerabilities rawDict'\n        classVariableNames: ''\n        package: 'Workflows'\n]).\n\n(Smalltalk at: #Workflow ifAbsent: [\n    Object subclass: #Workflow\n        instanceVariableNames: 'repoOwner repoName workflowName filePath versions rawJson'\n        classVariableNames: ''\n        package: 'Workflows'\n]).\n\n\"2) Compile instance and class methods for VulnerabilityVersion\"\n\nVulnerabilityVersion compile: '\ntimestamp\n    ^ timestamp\n' classified: 'accessing'.\n\nVulnerabilityVersion compile: '\nvulnerabilities\n    ^ vulnerabilities\n' classified: 'accessing'.\n\nVulnerabilityVersion compile: '\nrawDict\n    ^ rawDict\n' classified: 'accessing'.\n\nVulnerabilityVersion compile: '\ntimestamp: aString\n    timestamp := aString\n' classified: 'accessing'.\n\nVulnerabilityVersion compile: '\nvulnerabilities: aCollection\n    vulnerabilities := aCollection\n' classified: 'accessing'.\n\nVulnerabilityVersion compile: '\nrawDict: aDict\n    rawDict := aDict\n' classified: 'accessing'.\n\nVulnerabilityVersion compile: '\nvulnerabilityCount\n    ^ (self vulnerabilities) size\n' classified: 'accessing'.\n\n\"Class-side constructor\"\nVulnerabilityVersion class compile: '\nfromTimestamp: ts entry: entryDict\n    | vulnList |\n    vulnList := (entryDict at: ''vulnerability_list'' ifAbsent: [ #() ]).\n    ^ self new\n        timestamp: ts;\n        vulnerabilities: vulnList;\n        rawDict: entryDict;\n        yourself.\n' classified: 'instance creation'.\n\n\"3) Compile instance and class methods for Workflow\"\n\nWorkflow compile: '\nrepoOwner\n    ^ repoOwner\n' classified: 'accessing'.\n\nWorkflow compile: '\nrepoName\n    ^ repoName\n' classified: 'accessing'.\n\nWorkflow compile: '\nworkflowName\n    ^ workflowName\n' classified: 'accessing'.\n\nWorkflow compile: '\nfilePath\n    ^ filePath\n' classified: 'accessing'.\n\nWorkflow compile: '\nversions\n    ^ versions\n' classified: 'accessing'.\n\nWorkflow compile: '\nrawJson\n    ^ rawJson\n' classified: 'accessing'.\n\nWorkflow compile: '\nrepoOwner: s\n    repoOwner := s\n' classified: 'accessing'.\n\nWorkflow compile: '\nrepoName: s\n    repoName := s\n' classified: 'accessing'.\n\nWorkflow compile: '\nworkflowName: s\n    workflowName := s\n' classified: 'accessing'.\n\nWorkflow compile: '\nfilePath: p\n    filePath := p\n' classified: 'accessing'.\n\nWorkflow compile: '\nversions: aCollection\n    versions := aCollection\n' classified: 'accessing'.\n\nWorkflow compile: '\nrawJson: d\n    rawJson := d\n' classified: 'accessing'.\n\n\"Metrics (instance methods)\"\nWorkflow compile: '\nnumberOfVersions\n    ^ (self versions) size\n' classified: 'metrics'.\n\nWorkflow compile: '\nvulnerabilitiesPerVersion\n    ^ (self versions) collect: [:v | v timestamp -> v vulnerabilityCount]\n' classified: 'metrics'.\n\nWorkflow compile: '\ntotalVulnerabilities\n    ^ (self versions) inject: 0 into: [:sum :v | sum + (v vulnerabilityCount)]\n' classified: 'metrics'.\n\n\"Class-side constructor: must be on the metaclass\"\nWorkflow class compile: '\nfromJsonDict: aDict filePath: path\n    | history keysOrdered |\n    history := aDict at: ''history'' ifAbsent: [ Dictionary new ].\n    keysOrdered := history keys asSortedCollection.\n    ^ self new\n        repoOwner: (aDict at: ''repo_owner'' ifAbsent: [ ''unknown'' ]);\n        repoName: (aDict at: ''repo_name'' ifAbsent: [ ''unknown'' ]);\n        workflowName: (aDict at: ''workflow_name'' ifAbsent: [ path asString ]);\n        filePath: path;\n        versions: (keysOrdered collect: [:ts | VulnerabilityVersion fromTimestamp: ts entry: (history at: ts)]);\n        rawJson: aDict;\n        yourself\n' classified: 'instance creation'.\n\n\"4) Now use your existing variables. If they are not defined in this Workspace, define them exactly as you had:\"\nbaseDirectory := FileLocator home / 'Escritorio' / 'consolidated_data'.\n\njsonFiles := baseDirectory allChildrenMatching: '*.json'.\n\njsonDicts := jsonFiles collect: [ :f | STONJSON fromString: f ].\n\n\"5) Build allWorkflows robustly by index (safe)\"\nallWorkflows := (1 to: jsonFiles size) collect: [:i |\n    Workflow fromJsonDict: (jsonDicts at: i) filePath: (jsonFiles at: i)\n].\n\n\"6) Print RAW metrics to Transcript for quick verification\"\nallWorkflows do: [:wf |\n    Transcript show: 'Owner: ', wf repoOwner; cr.\n    Transcript show: 'Repo:  ', wf repoName; cr.\n    Transcript show: 'Workflow: ', wf workflowName; cr.\n    Transcript show: '  - Nº de versiones: ', (wf numberOfVersions asString); cr.\n    Transcript show: '  - Total vulnerabilidades (suma): ', (wf totalVulnerabilities asString); cr.\n    Transcript show: '  - Vulnerabilidades por versión:'; cr.\n    (wf vulnerabilitiesPerVersion) do: [:pair |\n        Transcript show: '       ', pair key, ' -> ', (pair value asString); cr.\n    ].\n    Transcript cr.\n].\n\n\"--- END: Self-contained fix & loader ---\"\n"
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2025-11-27T18:15:42.106226-03:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2025-11-27T18:15:43.279679-03:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "TLeawPsADgCnH4GEAuayuA=="
+				},
+				"code" : "allWorkflows := (1 to: jsonFiles size) collect: [:i |\n    Workflow fromJsonDict: (jsonDicts at: i) filePath: (jsonFiles at: i)\n]."
+			}
+		]
+	},
+	"createEmail" : {
+		"__type" : "email",
+		"emailString" : "<unknown>"
+	},
+	"createTime" : {
+		"__type" : "time",
+		"time" : {
+			"__type" : "dateAndTime",
+			"dateAndTimeString" : "2025-10-24T02:54:38.552258-03:00"
+		}
+	},
+	"editEmail" : {
+		"__type" : "email",
+		"emailString" : "<unknown>"
+	},
+	"editTime" : {
+		"__type" : "time",
+		"time" : {
+			"__type" : "dateAndTime",
+			"dateAndTimeString" : "2025-11-24T15:55:44.653383-03:00"
+		}
+	},
+	"pageType" : {
+		"__type" : "namedPage",
+		"title" : "testDataset"
+	},
+	"uid" : {
+		"__type" : "uuid",
+		"uuid" : "070b09ec-42fe-0d00-9580-a4b80a64db87"
+	}
+}
